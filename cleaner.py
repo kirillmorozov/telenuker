@@ -2,14 +2,14 @@ from time import sleep
 from os import getenv
 
 from pyrogram import Client
-from pyrogram.api.functions.messages import Search
-from pyrogram.api.types import InputPeerSelf, InputMessagesFilterEmpty
-from pyrogram.api.types.messages import ChannelMessages
+from pyrogram.raw.types import InputPeerSelf, InputMessagesFilterEmpty
+from pyrogram.raw.types.messages import ChannelMessages
+from pyrogram.raw.functions.messages import Search
 from pyrogram.errors import FloodWait, UnknownError
-
 
 API_ID = getenv('API_ID', None) or int(input('Enter your Telegram API id: '))
 API_HASH = getenv('API_HASH', None) or input('Enter your Telegram API hash: ')
+
 
 app = Client("client", api_id=API_ID, api_hash=API_HASH)
 app.start()
